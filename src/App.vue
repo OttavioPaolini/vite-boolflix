@@ -19,16 +19,26 @@ export default {
     },
     methods: {
         findResearch(){
-
+            this.movieSearch()
+            this.serieSearch()
+        },
+        movieSearch(){
             axios
             .get(`${this.store.apiMovieURL}?api_key=${this.store.apiKey}&query=${this.store.searchKey}`).then((resp) =>{
-                console.log(resp.data.results);
+               
                 this.store.movies = resp.data.results;
-                console.log(this.store.movies);
-
+                console.log(this.store.movies,"film");
+      })
+    },
+        serieSearch(){
+            axios
+            .get(`${this.store.apiSeriesURL}?api_key=${this.store.apiKey}&query=${this.store.searchKey}`).then((resp)=>{
+                
+                this.store.series = resp.data.results;
+                console.log(this.store.series, "serie");
             })
         }
-    }
+        }
 }
    
 </script>
@@ -38,6 +48,7 @@ export default {
 <AppMain />
 </template>
 
-<style >
+<style lang="scss">
+@use "./style/general.scss" as *;
 
 </style>

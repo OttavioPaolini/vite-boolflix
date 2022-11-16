@@ -16,9 +16,13 @@ export default {
 
 <template>
 <main>
-    <section>
-        <h1>Film</h1>
+    <section class="movie">
+        <h2>Film</h2>
         <AppFlyer v-for="movie in store.movies" :key="movie.id" :item="movie" />
+    </section>
+    <section class="series">
+        <h2>Serie</h2>
+        <AppFlyer v-for="serie in store.series" :key="serie.id" :item="serie" />
     </section>
 </main>
 
